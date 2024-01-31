@@ -3,6 +3,14 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 
+mongoose
+  .connect(process.env.MONGO_CONNECTION_STRING as string)
+  .then(() => {
+    console.log("connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
