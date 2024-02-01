@@ -1,5 +1,5 @@
 import express from "express";
-import { signup } from "../controllers/auth.controller";
+import { signin, signup } from "../controllers/auth.controller";
 import { check } from "express-validator";
 const authRouter = express.Router();
 
@@ -14,6 +14,16 @@ authRouter.post(
     }),
   ],
   signup
+);
+authRouter.post(
+  "/signin",
+  [
+    check("email", "Email is required").isEmail(),
+    check("password", "Password with 6 or more characters required").isLength({
+      min: 6,
+    }),
+  ],
+  signin
 );
 
 export default authRouter;
