@@ -71,3 +71,10 @@ export const signin = async (req: Request, res: Response) => {
     res.status(500).send({ message: "Something went wrong" });
   }
 };
+
+export const signout = (req: Request, res: Response) => {
+  res.cookie("auth_token", "", {
+    expires: new Date(0),
+  });
+  res.send();
+};

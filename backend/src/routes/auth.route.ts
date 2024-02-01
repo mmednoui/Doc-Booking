@@ -1,6 +1,9 @@
-import express from "express";
-import { signin, signup } from "../controllers/auth.controller";
+import express, { Request, Response } from "express";
+
+import { signin, signout, signup } from "../controllers/auth.controller";
 import { check } from "express-validator";
+import verifyToken from "../middleware/auth.middleware";
+
 const authRouter = express.Router();
 
 authRouter.post(
@@ -15,6 +18,7 @@ authRouter.post(
   ],
   signup
 );
+
 authRouter.post(
   "/signin",
   [
@@ -25,5 +29,14 @@ authRouter.post(
   ],
   signin
 );
+authRouter.get(
+  "/validate-token",
+  verifyToken,
+  (req: Request, res: Response) => {
+    res.status(200).send({ userId: req.userId });
+  }
+);
+
+authRouter.post("/signout", signout);
 
 export default authRouter;

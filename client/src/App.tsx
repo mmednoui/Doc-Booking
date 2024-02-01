@@ -5,6 +5,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./Layout";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -23,6 +25,22 @@ function App() {
           element={
             <Layout>
               <p>Search</p>
+            </Layout>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <Layout>
+              <SignIn />
+            </Layout>
+          }
+        />{" "}
+        <Route
+          path="/signup"
+          element={
+            <Layout>
+              <SignUp />
             </Layout>
           }
         />
