@@ -16,6 +16,14 @@ function App() {
           }
         />{" "}
         <Route
+          path="/khra"
+          element={
+            <Layout>
+              <p>home</p>
+            </Layout>
+          }
+        />{" "}
+        <Route
           path="/search"
           element={
             <Layout>
