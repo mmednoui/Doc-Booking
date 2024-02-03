@@ -1,8 +1,7 @@
 import { LoginFormData } from "./pages/SignIn";
 import { RegisterFormData } from "./pages/SignUp";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "https://doc-booking-ih7t.onrender.com";
+const API_BASE_URL = "https://doc-booking-ih7t.onrender.com";
 
 export const signup = async (formData: RegisterFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
