@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "https://doc-booking-ih7t.onrender.com",
     credentials: true,
   })
 );
