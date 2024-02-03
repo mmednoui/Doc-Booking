@@ -3,7 +3,7 @@ import { HotelType } from "../types/types";
 import Hotel from "../models/hotel.model";
 import cloudinary from "cloudinary";
 
-export const getUserHotels = async (req: Request, res: Response) => {
+export const createHotel = async (req: Request, res: Response) => {
   try {
     const imageFiles = req.files as Express.Multer.File[];
     const newHotel: HotelType = req.body;

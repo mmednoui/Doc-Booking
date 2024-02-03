@@ -6,7 +6,7 @@ import authRouter from "./routes/auth.route";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { v2 as cloudinary } from "cloudinary";
-import userRouter from "./routes/user.route";
+import hotelRouter from "./routes/hotel.route";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -36,7 +36,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 app.use("/api/auth", authRouter);
-app.use("/api/user", userRouter);
+app.use("/api/hotel", hotelRouter);
 
 app.listen(7000, () => {
   console.log("server running on localhost:7000");

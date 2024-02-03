@@ -2,7 +2,7 @@ import express from "express";
 import verifyToken from "../middleware/auth.middleware";
 import { body } from "express-validator";
 import multer from "multer";
-import { getUserHotels } from "../controllers/user.controller";
+import { createHotel } from "../controllers/user.controller";
 
 const userRouter = express.Router();
 
@@ -33,7 +33,7 @@ userRouter.post(
       .withMessage("Facilities are required"),
   ],
   upload.array("imageFiles", 6),
-  getUserHotels
+  createHotel
 );
 
 export default userRouter;
