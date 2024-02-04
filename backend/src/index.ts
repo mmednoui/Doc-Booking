@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://doc-bookin.onrender.com",
+    origin: "https://doc-booking-ih7t.onrender.com",
     credentials: true,
   })
 );
