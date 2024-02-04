@@ -1,7 +1,8 @@
+import { HotelType } from "../../backend/src/types/types";
 import { LoginFormData } from "./pages/SignIn";
 import { RegisterFormData } from "./pages/SignUp";
 
-const API_BASE_URL = "https://doc-booking-ih7t.onrender.com";
+const API_BASE_URL = "https://doc-bookin.onrender.com";
 
 export const signup = async (formData: RegisterFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
@@ -68,6 +69,18 @@ export const addHotel = async (hotelFormData: FormData) => {
 
   if (!response.ok) {
     throw new Error("Failed to add hotel");
+  }
+
+  return response.json();
+};
+
+export const fetchMyHotels = async (): Promise<HotelType[]> => {
+  const response = await fetch(`${API_BASE_URL}/api/user/hotels`, {
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    throw new Error("Error fetching hotels");
   }
 
   return response.json();
