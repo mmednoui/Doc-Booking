@@ -36,7 +36,7 @@ function App() {
           }
         />
         <Route
-          path="/register"
+          path="/signup"
           element={
             <Layout>
               <SignUp />
@@ -44,7 +44,7 @@ function App() {
           }
         />
         <Route
-          path="/sign-in"
+          path="/signin"
           element={
             <Layout>
               <SignIn />
