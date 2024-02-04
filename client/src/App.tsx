@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import AddHotel from "./pages/AddHotel";
 
 function App() {
   return (
@@ -11,15 +12,7 @@ function App() {
           path="/"
           element={
             <Layout>
-              <p>home</p>
-            </Layout>
-          }
-        />{" "}
-        <Route
-          path="/khra"
-          element={
-            <Layout>
-              <p>home</p>
+              <AddHotel />
             </Layout>
           }
         />{" "}
