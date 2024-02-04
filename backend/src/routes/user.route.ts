@@ -4,7 +4,7 @@ import Hotel from "../models/hotel.model";
 
 const userRouter = express.Router();
 
-userRouter.get("/", verifyToken, async (req: Request, res: Response) => {
+userRouter.get("/hotels", verifyToken, async (req: Request, res: Response) => {
   try {
     const hotels = await Hotel.find({ userId: req.userId });
     res.json(hotels);

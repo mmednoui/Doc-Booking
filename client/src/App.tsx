@@ -3,8 +3,10 @@ import Layout from "./Layout";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
+import { useAppContext } from "./contexts/AppContext";
 
 function App() {
+  const { isLoggedIn } = useAppContext();
   return (
     <Router>
       <Routes>
@@ -12,28 +14,28 @@ function App() {
           path="/"
           element={
             <Layout>
-              <AddHotel />
-            </Layout>
-          }
-        />{" "}
-        <Route
-          path="/search"
-          element={
-            <Layout>
-              <p>Search</p>
+              <p>home</p>
             </Layout>
           }
         />
         <Route
-          path="/signin"
+          path="/search"
           element={
             <Layout>
-              <SignIn />
+              <p>home</p>
             </Layout>
           }
-        />{" "}
+        />
         <Route
-          path="/signup"
+          path="/detail/:hotelId"
+          element={
+            <Layout>
+              <p>home</p>
+            </Layout>
+          }
+        />
+        <Route
+          path="/register"
           element={
             <Layout>
               <SignUp />
@@ -41,13 +43,59 @@ function App() {
           }
         />
         <Route
-          path="/add-hotel"
+          path="/sign-in"
           element={
             <Layout>
-              <p>add hotel</p>
+              <SignIn />
             </Layout>
           }
         />
+
+        {isLoggedIn && (
+          <>
+            <Route
+              path="/hotel/:hotelId/booking"
+              element={
+                <Layout>
+                  <p>home</p>
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/add-hotel"
+              element={
+                <Layout>
+                  <AddHotel />
+                </Layout>
+              }
+            />
+            <Route
+              path="/edit-hotel/:hotelId"
+              element={
+                <Layout>
+                  <p>home</p>
+                </Layout>
+              }
+            />
+            <Route
+              path="/my-hotels"
+              element={
+                <Layout>
+                  <p>home</p>
+                </Layout>
+              }
+            />
+            <Route
+              path="/my-bookings"
+              element={
+                <Layout>
+                  <p>home</p>
+                </Layout>
+              }
+            />
+          </>
+        )}
       </Routes>
     </Router>
   );
