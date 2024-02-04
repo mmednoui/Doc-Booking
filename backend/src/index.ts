@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://doc-booking-ih7t.onrender.com",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -41,7 +41,7 @@ app.use("/api/hotel", hotelRouter);
 app.use("/api/user", userRouter);
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
 
 app.listen(7000, () => {

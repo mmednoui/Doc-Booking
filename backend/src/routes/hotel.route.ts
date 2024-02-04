@@ -1,8 +1,12 @@
-import express from "express";
 import verifyToken from "../middleware/auth.middleware";
 import { body } from "express-validator";
 import multer from "multer";
-import { createHotel } from "../controllers/user.controller";
+import {
+  createHotel,
+  editHotel,
+  getHotel,
+} from "../controllers/hotel.controller";
+import express from "express";
 
 const hotelRouter = express.Router();
 
@@ -36,4 +40,11 @@ hotelRouter.post(
   createHotel
 );
 
+hotelRouter.get("/:id", verifyToken, getHotel);
+hotelRouter.put(
+  "/:hotelId",
+  verifyToken,
+  upload.array("imageFiles"),
+  editHotel
+);
 export default hotelRouter;
