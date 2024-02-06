@@ -9,6 +9,7 @@ import { v2 as cloudinary } from "cloudinary";
 import hotelRouter from "./routes/hotel.route";
 import userRouter from "./routes/user.route";
 import searchRouter from "./routes/search.route";
+import bookingRouter from "./routes/booking.route";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -30,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "https://doc-booking-ih7t.onrender.com",
     credentials: true,
   })
 );
@@ -41,6 +42,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/hotel", hotelRouter);
 app.use("/api/user", userRouter);
 app.use("/api/search", searchRouter);
+app.use("/api/booking", bookingRouter);
 
 app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../client/dist/index.html"));

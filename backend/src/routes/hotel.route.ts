@@ -5,6 +5,7 @@ import {
   createHotel,
   editHotel,
   getHotel,
+  getHotels,
 } from "../controllers/hotel.controller";
 import express from "express";
 
@@ -47,4 +48,7 @@ hotelRouter.put(
   upload.array("imageFiles"),
   editHotel
 );
+
+hotelRouter.get("/", getHotels);
+
 export default hotelRouter;

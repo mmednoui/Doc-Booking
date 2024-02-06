@@ -7,6 +7,10 @@ import { useAppContext } from "./contexts/AppContext";
 import MyHotels from "./pages/MyHotels";
 import EditHotel from "./pages/EditHotel";
 import Search from "./pages/Search";
+import HotelDetails from "./pages/HotelDetails";
+import Booking from "./pages/Booking";
+import MyBookings from "./pages/MyBookings";
+import Homepage from "./pages/Homepage";
 
 function App() {
   const { isLoggedIn } = useAppContext();
@@ -17,7 +21,7 @@ function App() {
           path="/"
           element={
             <Layout>
-              <p>home</p>
+              <Homepage />
             </Layout>
           }
         />
@@ -33,7 +37,7 @@ function App() {
           path="/detail/:hotelId"
           element={
             <Layout>
-              <p>home</p>
+              <HotelDetails />
             </Layout>
           }
         />
@@ -60,7 +64,7 @@ function App() {
               path="/hotel/:hotelId/booking"
               element={
                 <Layout>
-                  <p>home</p>
+                  <Booking />
                 </Layout>
               }
             />
@@ -93,7 +97,7 @@ function App() {
               path="/my-bookings"
               element={
                 <Layout>
-                  <p>home</p>
+                  <MyBookings />
                 </Layout>
               }
             />
